@@ -35,4 +35,35 @@ public class Blog {
 	private LocalDateTime createdOn;
 	@UpdateTimestamp
 	private LocalDateTime updatedOn;
+	
+	//авт додано - зміни в файл blogserviceimpl.java (4відео - час 6.28)
+	public Object getId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Object getTitle() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Object getPhotoUrl() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Object getContent() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Object getCreatedOn() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Object getUpdatedOn() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
