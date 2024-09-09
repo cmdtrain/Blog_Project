@@ -3,6 +3,9 @@ package com.blogproject.web.service.impl;
 import java.util.List;
 import java.util.stream.Collectors;
 
+//add this if impl doesnt work
+//@Service 
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.blogproject.web.dto.BlogDto;
@@ -44,6 +47,49 @@ public class BlogServiceImpl implements BlogService{
 			return blogDto;
 		
 	}
+	@Override
+	public Blog saveBlog(Blog blog) {
+		// TODO Auto-generated method stub
+		return (Blog) blogRepository.save(blog);
+	}
+	@Override
+	public void save() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public BlogDto findBlogById(long blogId) {
+		// TODO Auto-generated method stub
+		
+		Blog blog = (Blog) blogRepository.findById(blogId).get();
+		return mapToBlogDto(blog);
+		
+	}
+	@Override
+	public BlogDto findBlogById() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public void updateBlog(BlogDto blogDto) {
+		// TODO Auto-generated method stub
+		Blog blog = mapToBlog(blogDto);
+		blogRepository.save(blog);
+		
+	}
+	private Blog mapToBlog(BlogDto blog) {
+		// TODO Auto-generated method stub
+		Blog blogDto = Blog.builder()
+				.id(blog.getId())
+				.title(blog.getTitle())
+				.photoUrl(blog.getPhotoUrl())
+				.content(blog.getContent())
+				.createdOn(blog.getCreatedOn())
+				.updatedOn(blog.getUpdatedOn())
+				.build();
+		return blogDto;
+	}
+	
 	
 	
 

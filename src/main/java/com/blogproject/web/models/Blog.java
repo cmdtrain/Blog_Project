@@ -66,4 +66,9 @@ public class Blog {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	public static Object builder() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
