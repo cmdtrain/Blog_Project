@@ -7,12 +7,14 @@ import java.util.stream.Collectors;
 //@Service 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.blogproject.web.dto.BlogDto;
 import com.blogproject.web.models.Blog;
 import com.blogproject.web.repository.BlogRepository;
 import com.blogproject.web.service.BlogService;
 
+@Service
 public class BlogServiceImpl implements BlogService{
 
 	
@@ -48,7 +50,8 @@ public class BlogServiceImpl implements BlogService{
 		
 	}
 	@Override
-	public Blog saveBlog(Blog blog) {
+	public Blog saveBlog(BlogDto blogDto) {
+		Blog blog = mapToBlog(blogDto);
 		// TODO Auto-generated method stub
 		return (Blog) blogRepository.save(blog);
 	}
@@ -88,7 +91,19 @@ public class BlogServiceImpl implements BlogService{
 				.updatedOn(blog.getUpdatedOn())
 				.build();
 		return blogDto;
+	}// ADDED WHATS BELOW  CAUSE PUBLIC CLASS  BLOGSERVICEIMPL DIDNT WORK
+	@Override
+	public Blog saveBlog(Blog blog) {
+		// TODO Auto-generated method stub
+		return null;
 	}
+	@Override
+	public void delete(Long blogId) {
+		blogRepository.deleteById(blogId);
+		// TODO Auto-generated method stub
+		
+	}
+	
 	
 	
 	

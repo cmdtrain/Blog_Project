@@ -25,6 +25,7 @@ layout:decorate="~{layout}">
    <!-- changed this part -->                              <a th:text="${blog.title}" class="h3 fw-bolder text-decoration-none link-dark stretched-link" href="#!">Project name</a>
    															
                             </div>
+                            								<a class="btn btn-primary" th:href="@{/blogs/{blogId}(blogId=${blog.id})}">View</a>
                             								<a class="btn btn-primary" th:href="@{/blogs/{blogId}/edit(blogId=${blog.id})}">Edit</a>
                         </div>
                         

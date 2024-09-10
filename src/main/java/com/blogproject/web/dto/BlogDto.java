@@ -86,4 +86,12 @@ public class BlogDto {
 		return null;
 	}
 
+
+
+
+	public void setId(Long blogId) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

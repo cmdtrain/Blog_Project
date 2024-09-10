@@ -9,7 +9,7 @@ public interface BlogService {
 
 	List<BlogDto> findAllBlogs();
 	
-	Blog saveBlog(Blog blog);
+	Blog saveBlog(BlogDto blogDto);
 
 	void save();
 
@@ -17,5 +17,9 @@ public interface BlogService {
 
 	BlogDto findBlogById(long blogId);
 
-	void updateBlog(BlogDto blog); 
+	void updateBlog(BlogDto blog);
+
+	Blog saveBlog(Blog blog);
+
+	void delete(Long blogId); 
 }
