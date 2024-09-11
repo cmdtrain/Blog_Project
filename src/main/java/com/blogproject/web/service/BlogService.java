@@ -22,4 +22,7 @@ public interface BlogService {
 	Blog saveBlog(Blog blog);
 
 	void delete(Long blogId); 
+	
+	List<BlogDto> searchBlogs(String query);
+	
 }

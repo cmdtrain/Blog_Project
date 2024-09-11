@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.blogproject.web.dto.BlogDto;
 import com.blogproject.web.models.Blog;
@@ -58,6 +59,13 @@ public class BlogController {
 	public String deleteBlog(@PathVariable("blogId")Long blogId) {
 		blogService.delete(blogId);
 		return "redirect:/blogs";
+	}
+	
+	@GetMapping("/blogs/search")
+	public String searchBlog(@RequestParam(value = "query") String query, Model model) {
+		List<BlogDto> blogs = blogService.searchBlogs(query);
+		model.addAttribute(attributeValue: "blogs", blogs);
+		return "blogs-list";
 	}
 	
 	@PostMapping ("/blogs/new")

@@ -103,6 +103,12 @@ public class BlogServiceImpl implements BlogService{
 		// TODO Auto-generated method stub
 		
 	}
+	@Override
+	public List<BlogDto> searchBlogs(String query) {
+		// TODO Auto-generated method stub
+		List<Blog> blogs = blogRepository.searchBlogs(query);
+		return blogs.stream().map(blog -> mapToBlogDto(blog)).collect(Collectors.toList());
+	}
 	
 	
 	
