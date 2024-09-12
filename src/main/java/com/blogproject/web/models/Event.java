@@ -38,4 +38,14 @@ public class Event {
 	@ManyToOne
 	@JoinColumn(name="blog_id", nullable = false)
 	private Blog blog;
+
+	public static Object builder() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setBlog(Blog blog2) {
+		// TODO Auto-generated method stub
+		
+	}
 }
