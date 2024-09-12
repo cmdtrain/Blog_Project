@@ -32,23 +32,7 @@ public class BlogServiceImpl implements BlogService{
 		return blogs.stream().map((blog) -> mapToBlogDto(blog)).collect(Collectors.toList());
 		
 	}
-	private BlogDto mapToBlogDto(Blog blog) {
-		// TODO Auto-generated method stub
-		BlogDto blogDto = BlogDto.builder()
-				
-				.id(blog.getId())
-				.title(blog.getTitle())
-				.photoUrl(blog.getPhotoUrl())
-				.content(blog.getContent())
-				.createdOn(blog.getCreatedOn())
-				.updatedOn(blog.getUpdatedOn())
-				
-				.build();
-			
-					
-			return blogDto;
-		
-	}
+	
 	@Override
 	public Blog saveBlog(BlogDto blogDto) {
 		Blog blog = mapToBlog(blogDto);
@@ -80,18 +64,8 @@ public class BlogServiceImpl implements BlogService{
 		blogRepository.save(blog);
 		
 	}
-	private Blog mapToBlog(BlogDto blog) {
-		// TODO Auto-generated method stub
-		Blog blogDto = Blog.builder()
-				.id(blog.getId())
-				.title(blog.getTitle())
-				.photoUrl(blog.getPhotoUrl())
-				.content(blog.getContent())
-				.createdOn(blog.getCreatedOn())
-				.updatedOn(blog.getUpdatedOn())
-				.build();
-		return blogDto;
-	}// ADDED WHATS BELOW  CAUSE PUBLIC CLASS  BLOGSERVICEIMPL DIDNT WORK
+	
+	// ADDED WHATS BELOW  CAUSE PUBLIC CLASS  BLOGSERVICEIMPL DIDNT WORK
 	@Override
 	public Blog saveBlog(Blog blog) {
 		// TODO Auto-generated method stub

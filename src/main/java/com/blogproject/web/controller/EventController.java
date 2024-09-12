@@ -1,5 +1,7 @@
 package com.blogproject.web.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,6 +28,21 @@ public class EventController {
 		
 	}
 
+	@GetMapping("/events")
+	public String eventList(Model model) {
+		List<EventDto> events = eventService.findAllEvents();
+		model.addAttribute(attributeValue: "events", events);
+		return "events-list";
+		
+	}
+	
+	@GetMapping("/events/{eventId}")
+	public String viewEvent(@PathVariable("eventId") Long eventId, Model model) {
+		EventDto eventDto = eventService.findByEventId(eventId);
+		model.addAttribute(attributeName: "event", eventDto);
+		return "events-detail";
+		
+	}
 	
 	@GetMapping("/events/{blogId}/new")
 	public String createEventForm(@PathVariable("blogId") Long blogId, Model model) {

@@ -61,4 +61,14 @@ public class EventDto {
 		return null;
 	}
 
+	public Object getStartTime() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Object getEndTime() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

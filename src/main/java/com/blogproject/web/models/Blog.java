@@ -6,7 +6,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -77,7 +79,12 @@ public class Blog {
 	}
 	
 	@OneToMany(mappedBy = "blog", cascade = CascadeType.REMOVE)
-	private Set<Event> event = new HashSet<>();
+	private List<Event> event = new ArrayList<>();
+
+	public Object getEvents() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 }

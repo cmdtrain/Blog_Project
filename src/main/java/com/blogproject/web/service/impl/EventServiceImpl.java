@@ -1,5 +1,8 @@
 package com.blogproject.web.service.impl;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,16 +32,23 @@ public class EventServiceImpl implements EventService {
 		eventRepository.save(event);
 		
 	}
-	
+
 	private Event mapToEvent(EventDto eventDto) {
-		return Event.builder()
-				.id(eventDto.getId())
-				.name(eventDto.getName())
-				.type(eventDto.getType())
-				.photoUrl(eventDto.getPhotoUrl())
-				.createdOn(eventDto.getCreatedOn())
-				.updatedOn(eventDto.getUpdatedOn())
-				.build();
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@Override
+	public List<EventDto> findAllEvents() {
+		List<Event> events = eventRepository.findAll();
+		return events.stream().map(event -> mapToEventDto(event)).collect(Collectors.toList());
+		
+	}
+	
+	@Override
+	public EventDto findByEventId(Long eventId) {
+		Event event = eventRepository.findById(eventId).get();
+		return mapToEventDto(event);
 		
 	}
 

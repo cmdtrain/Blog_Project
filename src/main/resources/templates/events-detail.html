@@ -13,7 +13,7 @@ layout:decorate="~{layout}">
              <header class="py-5 bg-light border-bottom mb-4">
             <div class="container">
                 <div class="text-center my-5">
-                    <h1 class="fw-bolder" th:text="${blog.title}"></h1>
+                    <h1 class="fw-bolder" th:text="${event.name}"></h1>
                     <p class="lead mb-0">New York, NY</p>
                 </div>
             </div>
@@ -25,46 +25,17 @@ layout:decorate="~{layout}">
                 <div class="col-lg-8">
                     <!-- Featured blog post-->
                     <div class="card mb-4">
-                        <a href="#!"><img class="card-img-top" th:src="${blog.photoUrl}" alt="..." /></a>
+                        <a href="#!"><img class="card-img-top" th:src="${event.photoUrl}" alt="..." /></a>
                         <div class="card-body">
-                            <div class="small text-muted" th:text="${blog.createdOn}"></div>
-                            <h2 class="card-title">About this blog</h2>
-                            <p class="card-text" th:text="${blog.content}"></p>
-                            <a class="btn btn-primary" th:href="@{/blogs/{blogId}/delete(blogId=${blog.id})}">Delete</a>
-                            <a class="btn btn-primary" th:href="@{/events/{blogId}/new(blogId=${blog.id})}">Create Event</a>
+                            <div class="small text-muted" th:text="${event.createdOn}"></div>
+                            <h2 class="card-title">About this bloggers event</h2>
+                            <p class="card-text" th:text="${event.type}"></p>
+                            <a class="btn btn-primary">Delete</a>
+                            <a class="btn btn-primary">Edit Event</a>
                         </div>
                     </div>
-                    <!-- Nested row for non-featured blog posts-->
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <!-- Blog post-->
-                            <div th:each="event :${blog.events}" class="card mb-4">
-                                <a href="#!"><img class="card-img-top" th:src="${event.photoUrl}" alt="..." /></a>
-                                <div class="card-body">
-                                    <div class="small text-muted">January 1, 2023</div>
-                                    <h2 th:text="${event.name}"class="card-title h4"></h2>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.</p>
-                                    <a class="btn btn-primary" th:href="@{/events/{eventId}(eventId=${event.id})}">More →</a>
-                                </div>
-                            </div>
-                            <!-- Blog post-->
-                            
-                            
-                          </div>  
-                    </div>
-                    <!-- Pagination-->
-                    <nav aria-label="Pagination">
-                        <hr class="my-0" />
-                        <ul class="pagination justify-content-center my-4">
-                            <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">Newer</a></li>
-                            <li class="page-item active" aria-current="page"><a class="page-link" href="#!">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#!">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#!">3</a></li>
-                            <li class="page-item disabled"><a class="page-link" href="#!">...</a></li>
-                            <li class="page-item"><a class="page-link" href="#!">15</a></li>
-                            <li class="page-item"><a class="page-link" href="#!">Older</a></li>
-                        </ul>
-                    </nav>
+                   
+                   
                 </div>
                 <!-- Side widgets-->
                 <div class="col-lg-4">

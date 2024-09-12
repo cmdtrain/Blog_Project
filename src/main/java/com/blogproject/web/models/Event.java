@@ -28,6 +28,8 @@ public class Event {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
+	private LocalDateTime startTime;
+	private LocalDateTime endTime;
 	private String type;
 	private String photoUrl;
 	@CreationTimestamp
@@ -47,5 +49,45 @@ public class Event {
 	public void setBlog(Blog blog2) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	public Object getUpdatedOn() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Object getCreatedOn() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Object getPhotoUrl() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Object getType() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Object getEndTime() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Object getStartTime() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Object getName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Object getId() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
