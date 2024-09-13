@@ -52,6 +52,10 @@ public class BlogServiceImpl implements BlogService{
 		return mapToBlogDto(blog);
 		
 	}
+	private BlogDto mapToBlogDto(Blog blog) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	@Override
 	public BlogDto findBlogById() {
 		// TODO Auto-generated method stub
@@ -65,6 +69,10 @@ public class BlogServiceImpl implements BlogService{
 		
 	}
 	
+	private Blog mapToBlog(BlogDto blogDto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	// ADDED WHATS BELOW  CAUSE PUBLIC CLASS  BLOGSERVICEIMPL DIDNT WORK
 	@Override
 	public Blog saveBlog(Blog blog) {

@@ -6,6 +6,8 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.blogproject.web.models.Blog;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -30,6 +32,7 @@ public class EventDto {
 	private LocalDateTime createdOn;
 	
 	private LocalDateTime updatedOn;
+	private Blog blog;
 
 	public Object getId() {
 		// TODO Auto-generated method stub
@@ -69,6 +72,31 @@ public class EventDto {
 	public Object getEndTime() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public static Object builder() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setId(Long eventId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public Object getBlog() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setBlog() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setBlog(Object blog2) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

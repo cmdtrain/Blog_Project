@@ -52,4 +52,10 @@ public class EventServiceImpl implements EventService {
 		
 	}
 
+	@Override
+	public void updateEvent(EventDto eventDto) {
+		Event event = mapToEvent(eventDto);
+		eventRepository.save(event);
+		
+	}
 }

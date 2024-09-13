@@ -90,4 +90,9 @@ public class Event {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	public Object getBlog() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

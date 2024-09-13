@@ -80,7 +80,7 @@ public class BlogController {
 		
 	}
 	
-	@GetMapping("/blogs/{blodId}/edit")
+	@GetMapping("/blogs/{blogId}/edit")
 	public String editBlogForm(@PathVariable("blogId") long blogId, Model model) {
 		BlogDto blog = blogService.findBlogById(blogId);
 		model.addAttribute(attributeValue: "blog", blog);
@@ -91,8 +91,9 @@ public class BlogController {
 	
 	@PostMapping("/blogs/{blogId}/edit")
 	public String updateBlog(@PathVariable("blogId") Long blogId, @Valid @ModelAttribute("blog") BlogDto blog,
-			BindingResult result) {
+			BindingResult result, Model model) {
 		if(result.hasErrors()) {
+			model.addAttribute(attributeName:"blog", blog);
 			return "blogs-edit";
 			}
 		blog.setId(blogId);

@@ -8,6 +8,8 @@ public class EventService {
 	void createEvent(Long blogId, EventDto eventDto) {
 		List<EventDto> findAllEvents();
 		
+		EventDto findByEventId(Long eventId);
+		void updateEvent(EventDto eventDto);
 		
 	}
 
@@ -24,6 +26,16 @@ public class EventService {
 	public EventDto findByEventId(Long eventId) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public EventDto findEventById(long eventId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void updateEvent(EventDto event) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 
