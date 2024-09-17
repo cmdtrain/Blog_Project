@@ -37,6 +37,11 @@ public class EventService {
 		// TODO Auto-generated method stub
 		
 	}
+
+	public void deleteEvent(long eventId) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 
 }
