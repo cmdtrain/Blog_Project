@@ -34,4 +34,30 @@ public class UserEntity {
 			)
 	private List<Role> roles = new ArrayList<>();
 	
+	
+	public void setRoles(List<com.blogproject.web.models.Role> asList) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void setUsername(Object username2) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void setEmail(Object email2) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void setPassword(Object password2) {
+		// TODO Auto-generated method stub
+		
+	}
+	public Object getUsername() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public Object getEmail() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 }

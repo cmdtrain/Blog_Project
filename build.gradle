@@ -39,6 +39,8 @@ dependencies {
 	artifactId 'thymeleaf-layout-dialect'
 	groupId 'org.springframework.boot'
 	artifact 'spring-boot-starter-validation'
+	groupId 'org.springframework.boot'
+	artifactId 'spring-boot-starter-security'
 }
 
 tasks.named('test') {
