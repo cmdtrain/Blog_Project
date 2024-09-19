@@ -15,7 +15,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.blogproject.web.dto.BlogDto;
 import com.blogproject.web.dto.EventDto;
 import com.blogproject.web.models.Event;
+import com.blogproject.web.models.UserEntity;
+import com.blogproject.web.security.SecurityUtil;
 import com.blogproject.web.service.EventService;
+import com.blogproject.web.service.UserService;
 
 @Controller
 
@@ -24,16 +27,25 @@ public class EventController {
 	private EventService eventService;
 	private String attributeName;
 	private String attributeValue;
+	private UserService userService;
 	
 	@Autowired
-	public EventController(EventService eventService) {
+	public EventController(EventService eventService, UserService userService) {
+		this.userService = userService;
 		this.eventService = eventService;
 		
 	}
 
 	@GetMapping("/events")
 	public String eventList(Model model) {
+		UserEntity user = new UserEntity();
 		List<EventDto> events = eventService.findAllEvents();
+		String username = SecurityUtil.getSessionUser();
+		if(username != null) {
+			user = userService.findByUsername(username);
+			model.addAttribute(attributeName: "user", user);
+		}
+		model.addAttribute(attributeName: "user", user);
 		model.addAttribute(attributeValue: "events", events);
 		return "events-list";
 		
@@ -41,7 +53,16 @@ public class EventController {
 	
 	@GetMapping("/events/{eventId}")
 	public String viewEvent(@PathVariable("eventId") Long eventId, Model model) {
+		UserEntity user = new UserEntity();
+
 		EventDto eventDto = eventService.findByEventId(eventId);
+		String username = SecurityUtil.getSessionUser();
+		if(username != null) {
+			user = userService.findByUsername(username);
+			model.addAttribute(attributeName: "user", user);
+		}
+		model.addAttribute(attributeName: "blog", eventDto);
+		model.addAttribute(attributeName: "user", user);
 		model.addAttribute(attributeName: "event", eventDto);
 		return "events-detail";
 		

@@ -41,6 +41,10 @@ dependencies {
 	artifact 'spring-boot-starter-validation'
 	groupId 'org.springframework.boot'
 	artifactId 'spring-boot-starter-security'
+	groupId 'org.springframework.boot'
+	artifactId 'spring-boot-starter-security'
+	groupId 'org.thymeleaf.extras'
+	artifactId 'thymeleaf-extras-springsecurity5'
 }
 
 tasks.named('test') {

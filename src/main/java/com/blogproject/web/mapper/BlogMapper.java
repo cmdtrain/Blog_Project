@@ -15,6 +15,7 @@ public class BlogMapper {
 				.title(blog.getTitle())
 				.photoUrl(blog.getPhotoUrl())
 				.content(blog.getContent())
+				.createdBy(blog.getCreatedBy())
 				.createdOn(blog.getCreatedOn())
 				.updatedOn(blog.getUpdatedOn())
 				.build();
@@ -29,6 +30,7 @@ public class BlogMapper {
 				.title(blog.getTitle())
 				.photoUrl(blog.getPhotoUrl())
 				.content(blog.getContent())
+				.createdBy(blog.getCreatedBy())
 				.createdOn(blog.getCreatedOn())
 				.updatedOn(blog.getUpdatedOn())
 				.events(blog.getEvents().stream().map((event) -> mapToEventDto(event)).collect(Collectors.toList()))

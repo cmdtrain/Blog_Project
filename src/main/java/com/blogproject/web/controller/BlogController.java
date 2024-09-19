@@ -14,7 +14,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.blogproject.web.dto.BlogDto;
 import com.blogproject.web.models.Blog;
+import com.blogproject.web.models.UserEntity;
+import com.blogproject.web.security.SecurityUtil;
 import com.blogproject.web.service.BlogService;
+import com.blogproject.web.service.UserService;
 
 @Controller
 
@@ -23,18 +26,28 @@ public class BlogController {
 	private BlogService blogService;
 	private String attributeValue;
 	private String attributeName;
+	private UserService userService;
+	
 	
 	
 	
 	@Autowired
-	public BlogController(BlogService blogService) {
+	public BlogController(BlogService blogService, UserService userService) {
+		this.userService = userService;
 		this.blogService = blogService;
 		
 	}
 
 	@GetMapping ("/blogs")
 	public String listBlogs(Model model) {
+		UserEntity user = new UserEntity();
 		List<BlogDto> blogs = blogService.findAllBlogs();
+		String username = SecurityUtil.getSessionUser();
+		if(username != null) {
+			user = userService.findByUsername(username);
+			model.addAttribute(attributeName: "user", user);
+		}
+		model.addAttribute(attributeName: "user", user);
 		model.addAttribute(attributeName: "blogs", blogs);
 		return "blogs-list";
 		
@@ -42,7 +55,15 @@ public class BlogController {
 	
 	@GetMapping("/blogs/{blogId}")
 	public String blogDetail(@PathVariable("blogId") long blogId, Model model) {
+		UserEntity user = new UserEntity();
+		
 		BlogDto blogDto = blogService.findBlogById(blogId);
+		String username = SecurityUtil.getSessionUser();
+		if(username != null) {
+			user = userService.findByUsername(username);
+			model.addAttribute(attributeName: "user", user);
+		}
+		model.addAttribute(attributeName: "user", user);
 		model.addAttribute(attributeName: "blog", blogDto);
 		return "blogs-detail";
 	}

@@ -30,8 +30,10 @@ layout:decorate="~{layout}">
                             <div class="small text-muted" th:text="${blog.createdOn}"></div>
                             <h2 class="card-title">About this blog</h2>
                             <p class="card-text" th:text="${blog.content}"></p>
+                            <div th:if="${user.id} == ${blog.createdBy.id}">
                             <a class="btn btn-primary" th:href="@{/blogs/{blogId}/delete(blogId=${blog.id})}">Delete</a>
                             <a class="btn btn-primary" th:href="@{/events/{blogId}/new(blogId=${blog.id})}">Create Event</a>
+                            </div>
                         </div>
                     </div>
                     <!-- Nested row for non-featured blog posts-->

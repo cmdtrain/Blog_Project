@@ -11,7 +11,10 @@ import org.springframework.stereotype.Service;
 
 import com.blogproject.web.dto.BlogDto;
 import com.blogproject.web.models.Blog;
+import com.blogproject.web.models.UserEntity;
 import com.blogproject.web.repository.BlogRepository;
+import com.blogproject.web.repository.UserRepository;
+import com.blogproject.web.security.SecurityUtil;
 import com.blogproject.web.service.BlogService;
 
 @Service
@@ -19,10 +22,13 @@ public class BlogServiceImpl implements BlogService{
 
 	
 	private BlogRepository blogRepository;
+	private UserRepository userRepository;
+	
 	
 
 	@Autowired
-	public BlogServiceImpl(BlogRepository blogRepository) {
+	public BlogServiceImpl(BlogRepository blogRepositor, UserRepository userRepository) {
+		this.userRepository = userRepository;
 		this.blogRepository = blogRepository;
 	}
 	@Override
@@ -35,7 +41,10 @@ public class BlogServiceImpl implements BlogService{
 	
 	@Override
 	public Blog saveBlog(BlogDto blogDto) {
+		String username = SecurityUtil.getSessionUser();
+		UserEntity user = userRepository.findByUsername(username);
 		Blog blog = mapToBlog(blogDto);
+		blog.setCreatedBy(user);
 		// TODO Auto-generated method stub
 		return (Blog) blogRepository.save(blog);
 	}
@@ -63,8 +72,11 @@ public class BlogServiceImpl implements BlogService{
 	}
 	@Override
 	public void updateBlog(BlogDto blogDto) {
+		String username = SecurityUtil.getSessionUser();
+		UserEntity user = userRepository.findByUsername(username);
 		// TODO Auto-generated method stub
 		Blog blog = mapToBlog(blogDto);
+		blog.setCreatedBy(user);
 		blogRepository.save(blog);
 		
 	}
